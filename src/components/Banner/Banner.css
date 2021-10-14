@@ -35,3 +35,12 @@
 .search-box button:hover {
     background-color: red;
 }
+
+@media only screen and (max-width: 667px) {
+    .search-box {
+        width: 90%;
+    }
+    .search-box input{
+        width: 60%;
+    }
+}

@@ -1,0 +1,37 @@
+.footer-logo {
+    width: 200px;
+}
+.footer-quick-link a{
+    text-decoration: none;
+    color: rgb(177, 177, 177);
+    display: block;
+    margin-bottom: 10px;
+}
+.footer-quick-link a:hover{
+    color: white;
+}
+.footer-terms a {
+    text-decoration: none;
+    color: rgb(177, 177, 177);
+    margin: 30px;
+}
+.footer-terms a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+@media  only screen and (max-width: 667px) {
+    .footer-terms a {
+        display: block;
+        margin: 0 0 10px;
+    }
+    .footer-logo {
+        margin-bottom: 40px;
+    } 
+    .footer-quick-link {
+        margin-bottom: 30px;
+    }  
+    .footer-quick-link a{
+        margin-bottom: 10px;
+    }  
+}
