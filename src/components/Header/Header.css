@@ -1,0 +1,14 @@
+.header-logo {
+    width: 140px;
+}
+.signup-button {
+    background: #ff0000c2;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 0 25px;
+}
+.signup-button:hover {
+    background: red;
+}
