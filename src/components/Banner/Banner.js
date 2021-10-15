@@ -1,4 +1,5 @@
 import React from 'react';
+import useSearch from '../../hooks/useSearch';
 import './Banner.css'
 
 const Banner = () => {
