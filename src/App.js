@@ -6,6 +6,9 @@ import Footer from './components/Footer/Footer';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import AuthProvider from './components/AuthProvider/AuthProvider';
+import FoodDetails from './components/FoodDetails/FoodDetails';
+import Order from './components/Order/Order';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -19,6 +22,12 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
+          <Route path="/food/:id">
+            <FoodDetails />
+          </Route>
+          <PrivateRoute path="/order">
+            <Order />
+          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>

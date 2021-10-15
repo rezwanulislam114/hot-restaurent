@@ -23,7 +23,6 @@ const Home = () => {
         const searchedItems = menu.filter(item => {
             return item.name.toLowerCase().includes(searchText.toLowerCase())
         })
-        console.log(searchedItems);
         if (searchedItems.length) {
             setItems(searchedItems);
             setError('')
