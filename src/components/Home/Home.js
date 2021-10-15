@@ -4,9 +4,11 @@ import Food from '../Food/Food';
 import './Home.css'
 
 const Home = () => {
-
     const [menu, setMenu] = useState([]);
     const [items, setItems] = useState([]);
+    const [searchText, setSearchText] = useState('');
+    const [error, setError] = useState('');
+
     useEffect(() => {
         fetch('./menu.json')
             .then(res => res.json())
@@ -16,11 +18,28 @@ const Home = () => {
             })
     }, [])
 
+    const handleSearch = e => {
+        setSearchText(e.target.value);
+        const searchedItems = menu.filter(item => {
+            return item.name.toLowerCase().includes(searchText.toLowerCase())
+        })
+        console.log(searchedItems);
+        if (searchedItems.length) {
+            setItems(searchedItems);
+            setError('')
+        }
+        else {
+            setItems([]);
+            setError('Sorry. No item by this name. Check our menu please.');
+        }
+    }
+
     const filterItem = catagory => {
         const updatedItems = menu.filter(item => {
             return item.catagory === catagory
         })
         setItems(updatedItems);
+        setError('')
     }
 
     return (
@@ -28,7 +47,7 @@ const Home = () => {
             <div className="banner">
                 <h1>Best Food Waiting For You.</h1>
                 <div className="search-box">
-                    <input type="text" />
+                    <input onChange={handleSearch} type="text" />
                     <button>Search</button>
                 </div>
             </div>
@@ -39,6 +58,7 @@ const Home = () => {
                     <button onClick={() => filterItem('dinner')} className="menu-btn m-4">Dinner</button>
                     <button onClick={() => setItems(menu)} className="menu-btn m-4">All Items</button>
                 </div>
+                <h4 className="text-danger text-center">{error}</h4>
                 <div className="food-container">
                     {
                         items.map(item => <Food key={item.id} details={item}></Food>)
