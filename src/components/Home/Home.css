@@ -35,6 +35,22 @@
 .search-box button:hover {
     background-color: red;
 }
+.menu-btn {
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 3px solid transparent;
+    transition: .3s;
+}
+.menu-btn:hover {
+    color: red;
+    border-bottom: 3px solid red;
+}
+.food-container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 
 @media only screen and (max-width: 667px) {
     .search-box {
