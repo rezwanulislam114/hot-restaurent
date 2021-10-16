@@ -35,12 +35,17 @@
 .search-box button:hover {
     background-color: red;
 }
+.menu-btns {
+    display: flex;
+    justify-content: center;
+}
 .menu-btn {
     outline: none;
     border: none;
     background: none;
     border-bottom: 3px solid transparent;
     transition: .3s;
+    margin: 40px 35px 15px;
 }
 .menu-btn:hover {
     color: red;
@@ -51,6 +56,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
+.about {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 
 @media only screen and (max-width: 667px) {
     .search-box {
@@ -58,5 +67,15 @@
     }
     .search-box input{
         width: 60%;
+    }
+    .food-container {
+        grid-template-columns: 1fr;
+    }
+    .menu-btn {
+        margin: 35px 10px 15px;
+    }
+    .about {
+    display: grid;
+    grid-template-columns: 1fr;
     }
 }
