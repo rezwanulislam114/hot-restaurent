@@ -1,11 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import logo from '../../images/logo2.png';
 import './Login.css'
 
 const Login = () => {
+    const location = useLocation();
+    const history = useHistory();
     const { loginUsingGoogle, loginWithEmailPassword, catchEmail, catchPassword } = useAuth();
+
+    const redirect_url = location.state?.from || '/home'
+
+    const handleGoogleLogin = () => {
+        loginUsingGoogle()
+            .then(result => {
+                history.push(redirect_url)
+            })
+    }
 
     return (
         <>
@@ -17,7 +28,7 @@ const Login = () => {
                 </form>
                 <button onClick={loginWithEmailPassword}>Login</button>
                 <hr />
-                <button onClick={loginUsingGoogle}><i className="fab fa-google me-2"></i> Login With Google</button>
+                <button onClick={handleGoogleLogin}><i className="fab fa-google me-2"></i> Login With Google</button>
                 <p className="mt-5">Haven't any accout? <Link to="signup">Sign Up here</Link></p>
             </div>
         </>
