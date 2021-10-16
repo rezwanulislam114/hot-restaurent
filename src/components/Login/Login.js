@@ -7,13 +7,13 @@ import './Login.css'
 const Login = () => {
     const location = useLocation();
     const history = useHistory();
-    const { loginUsingGoogle, loginWithEmailPassword, catchEmail, catchPassword } = useAuth();
+    const { loginUsingGoogle, loginWithEmailPassword, catchEmail, catchPassword, error } = useAuth();
 
     const redirect_url = location.state?.from || '/home'
 
     const handleGoogleLogin = () => {
         loginUsingGoogle()
-            .then(result => {
+            .then(() => {
                 history.push(redirect_url)
             })
     }
@@ -26,6 +26,7 @@ const Login = () => {
                     <input onBlur={catchEmail} type="email" name="" id="email" placeholder="Email" />
                     <input onBlur={catchPassword} type="password" name="" id="password" placeholder="Password" />
                 </form>
+                <p className="text-danger text-start">{error}</p>
                 <button onClick={loginWithEmailPassword}>Login</button>
                 <hr />
                 <button onClick={handleGoogleLogin}><i className="fab fa-google me-2"></i> Login With Google</button>
